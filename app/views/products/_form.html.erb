@@ -11,44 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field col-8 mx-auto">
+  <div class="field  mx-auto">
     <%= form.label :name, class: 'd-block  px-0' %>
     <%= form.text_field :name, class: 'col' %>
   </div>
 
-  <div class="field col-8 mx-auto">
+  <div class="field  mx-auto">
     <%= form.label :money, class: 'd-block  px-0' %>
     <%= form.text_field :money, class: 'col' %>
   </div>
 
-  <div class="field col-8 mx-auto">
-    <%= form.label :start_at %>
-    <%= form.datetime_select :start_at %>
+  <div class="form-group">
+     <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+          <input  name='product[start_at]' type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7" placeholder='起始日'/>
+          <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
   </div>
 
-  <div class="field col-8 mx-auto">
-    <%= form.label :end_at %>
-    <%= form.datetime_select :end_at %>
+  <div class="form-group">
+     <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+          <input name='product[end_at]' type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8" placeholder='終止日'/>
+          <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+      </div>
   </div>
 
-  <div class="field col-8 mx-auto">
+  <div class="field  mx-auto">
     <%= form.label :currency , class: 'd-block  px-0'%>
-    <select name="product[currency]" class='col'>
+    <select name="product[currency]" class='col currency' name="state">
       <option value="NTD">NTD</option>
       <option value="USD">USD</option>
       <option value="HKD">HKD</option>
     </select>
   </div>
 
-  <div class="field col-8 mx-auto">
+  <div class="field  mx-auto">
     <%= form.label :tag_list, class: 'd-block  px-0' %>
-    <select name="product[tag_list][]" multiple= 'true' class='col'>
-      <option value="tag1">tag1</option>
-      <option value="tag2">tag2</option>
-      <option value="tag3">tag3</option>
+    <select name="product[tag_list][]" multiple= 'true' class='col ' >
+      <% product.tag_list.each do |tag| %>
+        <option selected="selected"><%= tag %></option>
+      <% end %>
     </select>
   </div>
-  <div class="actions col-8 mx-auto">
+  <div class="actions mx-auto">
     <%= form.submit %>
   </div>
 <% end %>
+

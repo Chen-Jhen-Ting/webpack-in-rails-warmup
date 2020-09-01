@@ -1,6 +1,6 @@
 <h1 class="text-center">Products</h1>
 
-<table class="table table-striped col-8 mx-auto">
+<table class="table table-striped mx-auto">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Name</th>
@@ -20,8 +20,8 @@
         <td scope="col"><%= product.money %></td>
         <td scope="col"><%= product.currency %></td>
         <td scope="col"><%= display_tag_list(product.tags) %></td>
-        <td scope="col"><%= product.start_at %></td>
-        <td scope="col"><%= product.end_at %></td>
+        <td scope="col"><%= product.start_at&.strftime("%m/%d") %></td>
+        <td scope="col"><%= product.end_at&.strftime("%m/%d") %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +31,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'New Product', new_product_path, class:'bg-muted text-danger d-block text-center col-3 mx-auto' %>
