@@ -1,2 +1,3 @@
 import "bootstrap/dist/css/bootstrap"
-require("./notice")
+// require("./notice")
+import './notice/notice.scss'
