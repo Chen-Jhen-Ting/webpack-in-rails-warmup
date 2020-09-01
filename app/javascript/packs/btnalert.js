@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load',()=>{
-    let form = document.querySelector('[action="/products"]')
+    let form = document.querySelector('form')
     let btn = document.querySelector('[type="submit"]')
     if(btn){
         btn.addEventListener('click',(event)=>{
